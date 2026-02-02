@@ -30,39 +30,39 @@ input.onblur = function() {
 input.onkeyup = function() {
   // Validar letras minúsculas
   var lowerCaseLetters = /[a-z]/g;
-  if (input.value.match(lowerCaseLetters)) { //Si la contraseña contiene minúsculas
+  if (input.value.match(lowerCaseLetters)) { //Si la contraseña contiene minúsculas, cambiamos el estado a valid 
     minuscula.classList.remove("invalid");
     minuscula.classList.add("valid");
-  } else { //Si la contraseña NO contiene minúsculas
+  } else { //Si la contraseña NO contiene minúsculas, cambiamos el estado a invalid
     minuscula.classList.remove("valid");
     minuscula.classList.add("invalid");
   }
 
   // Validar letras mayúsculas
   var upperCaseLetters = /[A-Z]/g;
-  if (input.value.match(upperCaseLetters)) { //Si la contraseña contiene mayúsculas
+  if (input.value.match(upperCaseLetters)) { //Si la contraseña contiene mayúsculas, cambiamos el estado a valid
     mayuscula.classList.remove("invalid");
     mayuscula.classList.add("valid");
-  } else { //Si la contraseña NO contiene mayúsculas
+  } else { //Si la contraseña NO contiene mayúsculas, cambiamos el estado a invalid
     mayuscula.classList.remove("valid");
     mayuscula.classList.add("invalid");
   }
 
   // Validar números
   var numeros = /[0-9]/g; 
-  if (input.value.match(numeros)) { //Si la contraseña contiene números del 0 al 9.
+  if (input.value.match(numeros)) { //Si la contraseña contiene números del 0 al 9, cambiamos el estado a valid
     numero.classList.remove("invalid");
     numero.classList.add("valid");
-  } else { //Si la contraseña NO contiene números del 0 al 9.
+  } else { //Si la contraseña NO contiene números del 0 al 9, cambiamos el estado a invalid
     numero.classList.remove("valid");
     numero.classList.add("invalid");
   }
 
   // Validar longitud
-  if (input.value.length >= 8) { //Si la contraseña tiene que tener más de 8 carácteres
+  if (input.value.length >= 8) { //Si la contraseña tiene que tener más de 8 carácteres, cambiamos el estado a valid
     longitud.classList.remove("invalid");
     longitud.classList.add("valid");
-  } else { //Si la contraseña NO tiene que tener más de 8 carácteres
+  } else { //Si la contraseña NO tiene que tener más de 8 carácteres, cambiamos el estado a invalid
     longitud.classList.remove("valid");
     longitud.classList.add("invalid");
   }
