@@ -8,11 +8,11 @@
         </head>
         <body>
             <main>
-            <h1>Contraseña</h1>
+            <h1>Entrar a Películas</h1>
                 <div class="container">
-                    <form action="que_en_penses.html" method="get">
+                    <form action="peliculas.html" method="get">
                         <fieldset>
-                            <legend>Informació personal</legend>
+                            <legend>Contraseña</legend>
 
                             <label for="nombre">Nombre</label>
                             <input id="nombre" name="nom" type="text" placeholder="Escribe tu nombre" required>
@@ -25,21 +25,18 @@
                                 <label for="esconder">Mostrar contraseña</label>
                             </div>
 
-                            <input type="submit" value="Submit">
+                            <input type="submit" id="botonSubmit" value="Submit" style="display: none;">
                         </fieldset>
                     </form>
                 </div>
                     
                     <div id="mensaje">
                         <h3>La contraseña debe contenter:</h3>
-                        <p id="minuscula" class="invalido">Una letra <b>minúscula</b></p>
-                        <p id="mayuscula" class="invalido">Una letra <b>mayúscula</b></p>
-                        <p id="numero" class="invalido">Un <b>número</b></p>
-                        <p id="longitud" class="invalido">Mínimo <b>8 carácteres</b></p>
+                        <p id="minuscula" class="invalid">Una letra <b>minúscula</b></p>
+                        <p id="mayuscula" class="invalid">Una letra <b>mayúscula</b></p>
+                        <p id="numero" class="invalid">Un <b>número</b></p>
+                        <p id="longitud" class="invalid">Mínimo <b>8 carácteres</b></p>
                     </div>
-
-                   
-                
             </main>
         </body>
     </html>

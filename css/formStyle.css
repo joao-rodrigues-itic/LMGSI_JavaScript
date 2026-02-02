@@ -98,7 +98,7 @@ button {
   cursor: pointer;
 }
 
-/* Style the submit button */
+/* Estilo del botón Submit */
 input[type=submit] {
   background-color: #04AA6D;
   color: white;
@@ -112,16 +112,19 @@ input[type=submit] {
 }
 
 /* El cuadro de mensaje se muestra cuando el usuario hace clic en el campo de contraseña */
-#message {
+#mensaje {
   display:none;
-  background: #f1f1f1;
-  color: #000;
+  background: #1c1313;
+  color: white;
   position: relative;
   padding: 20px;
   margin-top: 10px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
 }
 
-#message p {
+#mensaje p {
   padding: 10px 35px;
   font-size: 18px;
 }
@@ -134,7 +137,7 @@ input[type=submit] {
 .valid:before {
   position: relative;
   left: -35px;
-  content: "&#10004;";
+  content: "\2714";
 }
 
 /* Añade un color de texto rojo y un icono de “x” cuando los requisitos no se cumplen */
@@ -145,5 +148,5 @@ input[type=submit] {
 .invalid:before {
   position: relative;
   left: -35px;
-  content: "&#10006;";
+  content: "\2716";
 }

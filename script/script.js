@@ -1,3 +1,4 @@
+// Esconder/Mostrar contraseña
 document.getElementById("esconder").addEventListener("change", function() {
     let contrasena = document.getElementById("contrasena");
 
@@ -8,60 +9,73 @@ document.getElementById("esconder").addEventListener("change", function() {
     }
 });
 
-var myInput = document.getElementById("contrasena");
-var letter = document.getElementById("minuscula");
-var capital = document.getElementById("mayuscula");
-var number = document.getElementById("numero");
-var length = document.getElementById("longitud");
+var input = document.getElementById("contrasena");
+var minuscula = document.getElementById("minuscula");
+var mayuscula = document.getElementById("mayuscula");
+var numero = document.getElementById("numero");
+var longitud = document.getElementById("longitud");
 
 // Cuando el usuario hace clic en el campo de contraseña, se muestra el cuadro de mensaje
-myInput.onfocus = function() {
+input.onfocus = function() {
   document.getElementById("mensaje").style.display = "block";
 }
 
 // Cuando el usuario hace clic fuera del campo de contraseña, se oculta el cuadro de mensaje
-myInput.onblur = function() {
+input.onblur = function() {
   document.getElementById("mensaje").style.display = "none";
 }
 
 // Cuando el usuario empieza a escribir dentro del campo de contraseña
-myInput.onkeyup = function() {
+input.onkeyup = function() {
   // Validar letras minúsculas
   var lowerCaseLetters = /[a-z]/g;
-  if(myInput.value.match(lowerCaseLetters)) {
-    letter.classList.remove("invalid");
-    letter.classList.add("valid");
+  if (input.value.match(lowerCaseLetters)) {
+    minuscula.classList.remove("invalid");
+    minuscula.classList.add("valid");
   } else {
-    letter.classList.remove("valid");
-    letter.classList.add("invalid");
+    minuscula.classList.remove("valid");
+    minuscula.classList.add("invalid");
   }
 
   // Validar letras mayúsculas
   var upperCaseLetters = /[A-Z]/g;
-  if(myInput.value.match(upperCaseLetters)) {
-    capital.classList.remove("invalid");
-    capital.classList.add("valid");
+  if (input.value.match(upperCaseLetters)) {
+    mayuscula.classList.remove("invalid");
+    mayuscula.classList.add("valid");
   } else {
-    capital.classList.remove("valid");
-    capital.classList.add("invalid");
+    mayuscula.classList.remove("valid");
+    mayuscula.classList.add("invalid");
   }
 
   // Validar números
-  var numbers = /[0-9]/g;
-  if(myInput.value.match(numbers)) {
-    number.classList.remove("invalid");
-    number.classList.add("valid");
+  var numeros = /[0-9]/g;
+  if (input.value.match(numeros)) {
+    numero.classList.remove("invalid");
+    numero.classList.add("valid");
   } else {
-    number.classList.remove("valid");
-    number.classList.add("invalid");
+    numero.classList.remove("valid");
+    numero.classList.add("invalid");
   }
 
   // Validar longitud
-  if(myInput.value.length >= 8) {
-    length.classList.remove("invalid");
-    length.classList.add("valid");
+  if (input.value.length >= 8) {
+    longitud.classList.remove("invalid");
+    longitud.classList.add("valid");
   } else {
-    length.classList.remove("valid");
-    length.classList.add("invalid");
+    longitud.classList.remove("valid");
+    longitud.classList.add("invalid");
   }
+
+  // Mostrar / Ocultar botón submit
+  if (
+  minuscula.classList.contains("valid") &&
+  mayuscula.classList.contains("valid") &&
+  numero.classList.contains("valid") &&
+  longitud.classList.contains("valid")
+) {
+  document.getElementById("botonSubmit").style.display = "block";
+  document.getElementById("mensaje").style.display = "none";
+} else {
+  document.getElementById("botonSubmit").style.display = "none";
 }
+};
