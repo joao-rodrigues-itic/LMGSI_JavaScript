@@ -2,9 +2,9 @@
 document.getElementById("esconder").addEventListener("change", function() { //Función que cambia cuando se cambia el checkbox
     let contrasena = document.getElementById("contrasena"); // Se obtiene el input de la contraseña
 
-    if (contrasena.type === 'password') { 
+    if (contrasena.type === 'password') { // Si el tipo de input es 'password', se cambia a 'text' para mostrar la contraseña
         contrasena.setAttribute('type', 'text');
-    }else {
+    }else { // Si el tipo de input es 'text', se cambia a 'password' para esconder la contraseña
         contrasena.setAttribute('type', 'password');
     }
 });
