@@ -98,6 +98,19 @@ button {
   cursor: pointer;
 }
 
+/* Style the submit button */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
 /* El cuadro de mensaje se muestra cuando el usuario hace clic en el campo de contraseña */
 #message {
   display:none;
