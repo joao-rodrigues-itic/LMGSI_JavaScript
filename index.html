@@ -4,7 +4,7 @@
             <title>Contraseña de em JavaScript</title>
             <meta charset="UTF-8">
             <link rel="stylesheet" href="css/formStyle.css">
-
+            <script src="js/password.js" defer></script>
         </head>
         <body>
             <main>
@@ -14,14 +14,14 @@
                         <legend>Informació personal</legend>
 
                         <label for="nombre">Nombre</label>
-                        <input id="nombre" name="nom" type="text" placeholder="Escrive tu nombre" required>
+                        <input id="nombre" name="nom" type="text" placeholder="Escribe tu nombre" required>
                         
                         <label for="contrasena">Contraseña</label>
-                        <input id="contrasena" name="contrasena" type="text" placeholder="Escrive tu contraseña" required>
+                        <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" required>
                             
-                        <input type="checkbox" id="esconder" name="rols" value="Mostrar/Esconder" checked>
-                        <label for="cantant">Mostrar contraseña</label>
-                        
+                        <input type="checkbox" id="esconder" name="rols" value="Mostrar/Esconder">
+                        <label for="esconder">Mostrar contraseña</label>
+                    </fieldset>
                 </form>
             </main>
         </body>
