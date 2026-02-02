@@ -111,8 +111,8 @@ input[type=submit] {
   margin-bottom: 16px;
 }
 
-/* El cuadro de mensaje se muestra cuando el usuario hace clic en el campo de contraseña */
-#mensaje {
+/* El cuadro de mensaje se muestra cuando el usuario hace clic en el campo de contraseña i campo nombre */
+#mensaje, #mensajeNombre {
   display:none;
   background: #1c1313;
   color: white;
@@ -124,7 +124,7 @@ input[type=submit] {
   max-width: 500px;
 }
 
-#mensaje p {
+#mensaje p, #mensajeNombre p {
   padding: 10px 35px;
   font-size: 18px;
 }

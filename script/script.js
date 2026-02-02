@@ -9,6 +9,33 @@ document.getElementById("esconder").addEventListener("change", function() { //Fu
     }
 });
 
+//Referencias a los elementos HTML necesarios para la validación del nombre de usuario
+var inputNombre = document.getElementById("nombre");
+var arroba = document.getElementById("arroba");
+
+// Cuando el usuario hace clic en el campo del nombre de usuario, se muestra el cuadro de mensaje
+inputNombre.onfocus = function() {
+  document.getElementById("mensajeNombre").style.display = "block";
+}
+
+// Cuando el usuario hace clic fuera del campo del nombre de usuario, se oculta el cuadro de mensaje
+inputNombre.onblur = function() {
+  document.getElementById("mensajeNombre").style.display = "none";
+}
+
+// Cuando el usuario empieza a escribir dentro del campo del nombre de usuario
+inputNombre.onkeyup = function() {
+  // Validar que el nombre de usuario contiene una '@'
+  var arrobaSimbolo = /@/g;
+  if (inputNombre.value.match(arrobaSimbolo)) { //Si el nombre de usuario contiene una '@'
+    arroba.classList.remove("invalid");
+    arroba.classList.add("valid");
+  } else { //Si el nombre de usuario NO contiene una '@'
+    arroba.classList.remove("valid");
+    arroba.classList.add("invalid");
+  }
+};
+
 // Referencias a los elementos HTML necesarios para la validación de la contraseña
 var input = document.getElementById("contrasena");
 var minuscula = document.getElementById("minuscula");
@@ -73,7 +100,8 @@ input.onkeyup = function() {
   minuscula.classList.contains("valid") &&
   mayuscula.classList.contains("valid") &&
   numero.classList.contains("valid") &&
-  longitud.classList.contains("valid")
+  longitud.classList.contains("valid") &&
+  arroba.classList.contains("valid")  
 ) { //Si se cumplen todas las validaciones
   document.getElementById("botonSubmit").style.display = "block";  //El botón Submit se vuelve visible
   document.getElementById("mensaje").style.display = "none"; // El mensaje de validación deja de ser visible
