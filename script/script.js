@@ -37,11 +37,11 @@ inputNombre.onkeyup = function() {
 };
 
 // Referencias a los elementos HTML necesarios para la validación de la contraseña
-var input = document.getElementById("contrasena");
-var minuscula = document.getElementById("minuscula");
-var mayuscula = document.getElementById("mayuscula");
-var numero = document.getElementById("numero");
-var longitud = document.getElementById("longitud");
+var input = document.getElementById("contrasena"); // Input donde el usuario escribe la contraseña
+var minuscula = document.getElementById("minuscula"); // Indica si hay una minúscula
+var mayuscula = document.getElementById("mayuscula"); // Indica si hay una mayúscula
+var numero = document.getElementById("numero"); // Indica si hay un numero
+var longitud = document.getElementById("longitud"); // Indica si tiene la longitud necesaria
 
 // Cuando el usuario hace clic en el campo de contraseña, se muestra el cuadro de mensaje
 input.onfocus = function() {
@@ -57,39 +57,39 @@ input.onblur = function() {
 input.onkeyup = function() {
   // Validar letras minúsculas
   var lowerCaseLetters = /[a-z]/g;
-  if (input.value.match(lowerCaseLetters)) { //Si la contraseña contiene minúsculas
+  if (input.value.match(lowerCaseLetters)) { //Si la contraseña contiene minúsculas, cambiamos el estado a valid 
     minuscula.classList.remove("invalid");
     minuscula.classList.add("valid");
-  } else { //Si la contraseña NO contiene minúsculas
+  } else { //Si la contraseña NO contiene minúsculas, cambiamos el estado a invalid
     minuscula.classList.remove("valid");
     minuscula.classList.add("invalid");
   }
 
   // Validar letras mayúsculas
   var upperCaseLetters = /[A-Z]/g;
-  if (input.value.match(upperCaseLetters)) { //Si la contraseña contiene mayúsculas
+  if (input.value.match(upperCaseLetters)) { //Si la contraseña contiene mayúsculas, cambiamos el estado a valid
     mayuscula.classList.remove("invalid");
     mayuscula.classList.add("valid");
-  } else { //Si la contraseña NO contiene mayúsculas
+  } else { //Si la contraseña NO contiene mayúsculas, cambiamos el estado a invalid
     mayuscula.classList.remove("valid");
     mayuscula.classList.add("invalid");
   }
 
   // Validar números
   var numeros = /[0-9]/g; 
-  if (input.value.match(numeros)) { //Si la contraseña contiene números del 0 al 9.
+  if (input.value.match(numeros)) { //Si la contraseña contiene números del 0 al 9, cambiamos el estado a valid
     numero.classList.remove("invalid");
     numero.classList.add("valid");
-  } else { //Si la contraseña NO contiene números del 0 al 9.
+  } else { //Si la contraseña NO contiene números del 0 al 9, cambiamos el estado a invalid
     numero.classList.remove("valid");
     numero.classList.add("invalid");
   }
 
   // Validar longitud
-  if (input.value.length >= 8) { //Si la contraseña tiene que tener más de 8 carácteres
+  if (input.value.length >= 8) { //Si la contraseña tiene que tener más de 8 carácteres, cambiamos el estado a valid
     longitud.classList.remove("invalid");
     longitud.classList.add("valid");
-  } else { //Si la contraseña NO tiene que tener más de 8 carácteres
+  } else { //Si la contraseña NO tiene que tener más de 8 carácteres, cambiamos el estado a invalid
     longitud.classList.remove("valid");
     longitud.classList.add("invalid");
   }
