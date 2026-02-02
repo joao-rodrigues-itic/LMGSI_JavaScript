@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Contraseña de em JavaScript</title>
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="css/formStyle.css">
+            <style>
+                body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 2rem;
+                background: #1a1a1a;
+                color: #f3587a;
+                align-items: center;
+                }
+
+                main {
+                max-width: 480px;
+                margin: 0 auto;
+                padding: 1.75rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+                }
+
+                h1 {
+                margin-top: 0;
+                text-align: center;
+                letter-spacing: 2px;
+                color: #f3587a;
+                }
+
+                fieldset {
+                border: 1px solid #752b52;
+                border-radius: 6px;
+                padding: 1.25rem;
+                margin: 0;
+                }
+
+                form {
+                background-color: #2b2424;;
+                border-radius: 12px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+                width: 100%;
+                max-width: 500px;
+                padding: 1.25rem;
+                }
+
+                legend {
+                font-weight: 600;
+                padding: 0 0.5rem;
+                color: #f3587a;
+                }
+
+                label {
+                display: block;
+                margin-top: 1rem;
+                margin-bottom: 0.4rem;
+                }
+
+                input[type="text"],
+                input[type="email"],
+                input[type="tel"],
+                input[type="number"],
+                input[type="password"] {
+                width: 100%;
+                padding: 0.3rem;
+                border: 1px solid #cbd5e1;
+                border-radius: 4px;
+                font-size: 1rem;
+                }
+
+                select{
+                height: 1.5rem;
+                }
+
+                input[type="checkbox"] + label,
+                input[type="radio"] + label {
+                display: inline-block;       
+                margin-right: 1rem;          
+                margin-top: 0;               
+                font-weight: normal;         
+                vertical-align: middle;      
+                }
+
+                textarea {
+                width: 98%;
+                padding: 10px;
+                border: none;
+                border-radius: 6px;
+                margin-bottom: 2px;
+                background-color: #2c2c2c;
+                color: #f1f1f1;
+                font-size: 14px;
+                min-height: 120px;
+                }
+
+                button {
+                margin-top: 1.5rem;
+                padding: 0.6rem 1.4rem;
+                border: none;
+                border-radius: 4px;
+                background: #2563eb;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                }
+
+                /* Estilo del botón Submit */
+                input[type=submit] {
+                background-color: #04AA6D;
+                color: white;
+                width: 30%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                }
+
+                /* El cuadro de mensaje se muestra cuando el usuario hace clic en el campo de contraseña i campo nombre */
+                #mensaje, #mensajeNombre {
+                display:none;
+                background: #1c1313;
+                color: white;
+                position: relative;
+                padding: 20px;
+                margin-top: 10px;
+                border-radius: 12px;
+                width: 100%;
+                max-width: 500px;
+                }
+
+                #mensaje p, #mensajeNombre p {
+                padding: 10px 35px;
+                font-size: 18px;
+                }
+
+                /* Añade un color de texto verde y una marca de verificación cuando los requisitos se cumplen */
+                .valid {
+                color: green;
+                }
+
+                .valid:before {
+                position: relative;
+                left: -35px;
+                content: "\2714";
+                }
+
+                /* Añade un color de texto rojo y un icono de “x” cuando los requisitos no se cumplen */
+                .invalid {
+                color: red;
+                }
+
+                .invalid:before {
+                position: relative;
+                left: -35px;
+                content: "\2716";
+                }
+            </style>
+        </head>
+        <body>
+            <main>
+            <h1>Entrar a Películas</h1>
+                <div class="container">
+                    <form action="peliculas.html" method="get">
+                        <fieldset>
+                            <legend>Contraseña</legend>
+
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="nom" type="text" placeholder="Escribe tu nombre" required>
+                            
+                            <label for="contrasena">Contraseña</label>
+                            <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" required>
+                                
+                            <div>
+                                <input type="checkbox" id="esconder" name="esconder" value="Mostrar/Esconder">
+                                <label for="esconder">Mostrar contraseña</label>
+                            </div>
+
+                            <input type="submit" id="botonSubmit" value="Submit" style="display: none;">
+                        </fieldset>
+                    </form>
+                </div>
+
+                    <div id="mensajeNombre">
+                        <h3>El nombre debe contenter:</h3>
+                        <p id="arroba" class="invalid">Una <b>@</b></p>
+                    </div>
+                    
+                    <div id="mensaje">
+                        <h3>La contraseña debe contenter:</h3>
+                        <p id="minuscula" class="invalid">Una letra <b>minúscula</b></p>
+                        <p id="mayuscula" class="invalid">Una letra <b>mayúscula</b></p>
+                        <p id="numero" class="invalid">Un <b>número</b></p>
+                        <p id="longitud" class="invalid">Mínimo <b>8 carácteres</b></p>
+                    </div>
+            </main>
+
+            <script>
+                // Esconder/Mostrar contraseña
+                document.getElementById("esconder").addEventListener("change", function() { //Función que cambia cuando se cambia el checkbox
+                    let contrasena = document.getElementById("contrasena"); // Se obtiene el input de la contraseña
+
+                    if (contrasena.type === 'password') { // Si el tipo de input es 'password', se cambia a 'text' para mostrar la contraseña
+                        contrasena.setAttribute('type', 'text');
+                    }else { // Si el tipo de input es 'text', se cambia a 'password' para esconder la contraseña
+                        contrasena.setAttribute('type', 'password');
+                    }
+                });
+
+                //Referencias a los elementos HTML necesarios para la validación del nombre de usuario
+                var inputNombre = document.getElementById("nombre");
+                var arroba = document.getElementById("arroba");
+
+                // Cuando el usuario hace clic en el campo del nombre de usuario, se muestra el cuadro de mensaje
+                inputNombre.onfocus = function() {
+                document.getElementById("mensajeNombre").style.display = "block";
+                }
+
+                // Cuando el usuario hace clic fuera del campo del nombre de usuario, se oculta el cuadro de mensaje
+                inputNombre.onblur = function() {
+                document.getElementById("mensajeNombre").style.display = "none";
+                }
+
+                // Cuando el usuario empieza a escribir dentro del campo del nombre de usuario
+                inputNombre.onkeyup = function() {
+                // Validar que el nombre de usuario contiene una '@'
+                var arrobaSimbolo = /@/g;
+                if (inputNombre.value.match(arrobaSimbolo)) { //Si el nombre de usuario contiene una '@'
+                    arroba.classList.remove("invalid");
+                    arroba.classList.add("valid");
+                } else { //Si el nombre de usuario NO contiene una '@'
+                    arroba.classList.remove("valid");
+                    arroba.classList.add("invalid");
+                }
+                };
+
+                // Referencias a los elementos HTML necesarios para la validación de la contraseña
+                var input = document.getElementById("contrasena"); // Input donde el usuario escribe la contraseña
+                var minuscula = document.getElementById("minuscula"); // Indica si hay una minúscula
+                var mayuscula = document.getElementById("mayuscula"); // Indica si hay una mayúscula
+                var numero = document.getElementById("numero"); // Indica si hay un numero
+                var longitud = document.getElementById("longitud"); // Indica si tiene la longitud necesaria
+
+                // Cuando el usuario hace clic en el campo de contraseña, se muestra el cuadro de mensaje
+                input.onfocus = function() {
+                document.getElementById("mensaje").style.display = "block";
+                }
+
+                // Cuando el usuario hace clic fuera del campo de contraseña, se oculta el cuadro de mensaje
+                input.onblur = function() {
+                document.getElementById("mensaje").style.display = "none";
+                }
+
+                // Cuando el usuario empieza a escribir dentro del campo de contraseña
+                input.onkeyup = function() {
+                // Validar letras minúsculas
+                var lowerCaseLetters = /[a-z]/g;
+                if (input.value.match(lowerCaseLetters)) { //Si la contraseña contiene minúsculas, cambiamos el estado a valid 
+                    minuscula.classList.remove("invalid");
+                    minuscula.classList.add("valid");
+                } else { //Si la contraseña NO contiene minúsculas, cambiamos el estado a invalid
+                    minuscula.classList.remove("valid");
+                    minuscula.classList.add("invalid");
+                }
+
+                // Validar letras mayúsculas
+                var upperCaseLetters = /[A-Z]/g;
+                if (input.value.match(upperCaseLetters)) { //Si la contraseña contiene mayúsculas, cambiamos el estado a valid
+                    mayuscula.classList.remove("invalid");
+                    mayuscula.classList.add("valid");
+                } else { //Si la contraseña NO contiene mayúsculas, cambiamos el estado a invalid
+                    mayuscula.classList.remove("valid");
+                    mayuscula.classList.add("invalid");
+                }
+
+                // Validar números
+                var numeros = /[0-9]/g; 
+                if (input.value.match(numeros)) { //Si la contraseña contiene números del 0 al 9, cambiamos el estado a valid
+                    numero.classList.remove("invalid");
+                    numero.classList.add("valid");
+                } else { //Si la contraseña NO contiene números del 0 al 9, cambiamos el estado a invalid
+                    numero.classList.remove("valid");
+                    numero.classList.add("invalid");
+                }
+
+                // Validar longitud
+                if (input.value.length >= 8) { //Si la contraseña tiene que tener más de 8 carácteres, cambiamos el estado a valid
+                    longitud.classList.remove("invalid");
+                    longitud.classList.add("valid");
+                } else { //Si la contraseña NO tiene que tener más de 8 carácteres, cambiamos el estado a invalid
+                    longitud.classList.remove("valid");
+                    longitud.classList.add("invalid");
+                }
+
+                // Mostrar / Ocultar botón submit
+                // Comprovación de que la contraseña cumple todas las directrices de validación
+                // Comprovación de que el nombre de usuario cumple la directriz de validación
+                if (
+                minuscula.classList.contains("valid") &&
+                mayuscula.classList.contains("valid") &&
+                numero.classList.contains("valid") &&
+                longitud.classList.contains("valid") &&
+                arroba.classList.contains("valid")  
+                ) { //Si se cumplen todas las validaciones
+                document.getElementById("botonSubmit").style.display = "block";  //El botón Submit se vuelve visible
+                document.getElementById("mensaje").style.display = "none"; // El mensaje de validación deja de ser visible
+                document.getElementById("mensajeNombre").style.display = "none"; // El mensaje de validación del nombre deja de ser visible
+                } else { //Si NO se cumplen todas las validaciones
+                document.getElementById("botonSubmit").style.display = "none"; // El botón Submit deja de ser visible
+                }
+                };
+            </script>
+        </body>
+    </html>

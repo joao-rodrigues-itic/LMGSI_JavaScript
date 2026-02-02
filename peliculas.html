@@ -63,12 +63,22 @@
   
   <div class="container" id="film-container"></div>
 
+
   <script>
   /////////////////////// Fiqueu el vostre codi aquí ////////////////////////
 
+  import { films } from './films.js';
 
+  const arrayFilms = films;  
+  console.log(arrayFilms);
 
+let txt = "";
+arrayFilms.forEach(myFunction);
+document.getElementById("film-container").innerHTML = txt;
 
+function myFunction(value, index, array) {
+  txt += value + "<br>"; 
+}
 
   ///////////////////////////////////////////////////////////////////////////
 
