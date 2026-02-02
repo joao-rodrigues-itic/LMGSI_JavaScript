@@ -96,6 +96,7 @@ input.onkeyup = function() {
 
   // Mostrar / Ocultar botón submit
   // Comprovación de que la contraseña cumple todas las directrices de validación
+  // Comprovación de que el nombre de usuario cumple la directriz de validación
   if (
   minuscula.classList.contains("valid") &&
   mayuscula.classList.contains("valid") &&
@@ -105,6 +106,7 @@ input.onkeyup = function() {
 ) { //Si se cumplen todas las validaciones
   document.getElementById("botonSubmit").style.display = "block";  //El botón Submit se vuelve visible
   document.getElementById("mensaje").style.display = "none"; // El mensaje de validación deja de ser visible
+  document.getElementById("mensajeNombre").style.display = "none"; // El mensaje de validación del nombre deja de ser visible
 } else { //Si NO se cumplen todas las validaciones
   document.getElementById("botonSubmit").style.display = "none"; // El botón Submit deja de ser visible
 }
