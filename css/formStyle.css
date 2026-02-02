@@ -97,3 +97,40 @@ button {
   font-weight: 600;
   cursor: pointer;
 }
+
+/* El cuadro de mensaje se muestra cuando el usuario hace clic en el campo de contraseña */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Añade un color de texto verde y una marca de verificación cuando los requisitos se cumplen */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10004;";
+}
+
+/* Añade un color de texto rojo y un icono de “x” cuando los requisitos no se cumplen */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10006;";
+}

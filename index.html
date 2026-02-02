@@ -9,29 +9,35 @@
         <body>
             <main>
             <h1>Contraseña</h1>
-                <form action="que_en_penses.html" method="get">
-                    <fieldset>
-                        <legend>Informació personal</legend>
+                <div class="container">
+                    <form action="que_en_penses.html" method="get">
+                        <fieldset>
+                            <legend>Informació personal</legend>
 
-                        <label for="nombre">Nombre</label>
-                        <input id="nombre" name="nom" type="text" placeholder="Escribe tu nombre" required>
-                        
-                        <label for="contrasena">Contraseña</label>
-                        <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" required>
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="nom" type="text" placeholder="Escribe tu nombre" required>
                             
-                        <input type="checkbox" id="esconder" name="rols" value="Mostrar/Esconder">
-                        <label for="esconder">Mostrar contraseña</label>
-                    </fieldset>
+                            <label for="contrasena">Contraseña</label>
+                            <input id="contrasena" name="contrasena" type="password" placeholder="Escribe tu contraseña" required>
+                                
+                            <input type="checkbox" id="esconder" name="esconder" value="Mostrar/Esconder">
+                            <label for="esconder">Mostrar contraseña</label>
 
-                    <div>
-                        <h1>El nom ha de tenir:</h1>
-                        <p>Una lletra minúscula</p>
-                        <p>Una lletra majúscula</p>
-                        <p>Un número</p>
-                        <p>Mínim 8 caràcters</p>
+                            <input type="submit" value="Submit">
+                        </fieldset>
+                    </form>
+                </div>
+                    
+                    <div id="mensaje">
+                        <h3>La contraseña debe contenter:</h3>
+                        <p id="minuscula" class="invalido">Una letra <b>minúscula</b></p>
+                        <p id="mayuscula" class="invalido">Una letra <b>mayúscula</b></p>
+                        <p id="numero" class="invalido">Un <b>número</b></p>
+                        <p id="longitud" class="invalido">Mínimo <b>8 carácteres</b></p>
                     </div>
-                    <div></div>
-                </form>
+
+                   
+                
             </main>
         </body>
     </html>
