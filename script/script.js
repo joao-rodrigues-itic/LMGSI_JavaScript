@@ -10,11 +10,11 @@ document.getElementById("esconder").addEventListener("change", function() { //Fu
 });
 
 // Referencias a los elementos HTML necesarios para la validación de la contraseña
-var input = document.getElementById("contrasena");
-var minuscula = document.getElementById("minuscula");
-var mayuscula = document.getElementById("mayuscula");
-var numero = document.getElementById("numero");
-var longitud = document.getElementById("longitud");
+var input = document.getElementById("contrasena"); // Input donde el usuario escribe la contraseña
+var minuscula = document.getElementById("minuscula"); // Indica si hay una minúscula
+var mayuscula = document.getElementById("mayuscula"); // Indica si hay una mayúscula
+var numero = document.getElementById("numero"); // Indica si hay un numero
+var longitud = document.getElementById("longitud"); // Indica si tiene la longitud necesaria
 
 // Cuando el usuario hace clic en el campo de contraseña, se muestra el cuadro de mensaje
 input.onfocus = function() {
