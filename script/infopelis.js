@@ -1,4 +1,4 @@
-export const films = [
+const films = [
       
   {
     "name": "The Godfather",

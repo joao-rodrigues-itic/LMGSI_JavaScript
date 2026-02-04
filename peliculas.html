@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pelis</title>
+  <script src="script/infopelis.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -61,24 +63,41 @@
     <button type="button" onclick="funcio()">Cerca</button>
   </div>
   
-  <div class="container" id="film-container"></div>
+  <div class="container" id="film-container">
+  
+    <div class="card">
+      <div class="title" id="title">
+        <h2 id="name">Godfather</h2>
+      </div>
+      <div class="content" id="content">
+        <p id="year">1993</p>
+        <p id="style">Thriller</p>
+        <p id="director">Joao</p>
+        <p id="actors">hola</p>
+        <p id="oscars">2</p>
+      </div>
+    </div>
 
+  </div>
 
   <script>
   /////////////////////// Fiqueu el vostre codi aquí ////////////////////////
+  const container = document.getElementById("film-container");
+  
+  function crearTarjeta (film){
+    
+    const card = document.createElement("div")
 
-  import { films } from './films.js';
-
-  const arrayFilms = films;  
-  console.log(arrayFilms);
-
-let txt = "";
-arrayFilms.forEach(myFunction);
-document.getElementById("film-container").innerHTML = txt;
-
-function myFunction(value, index, array) {
-  txt += value + "<br>"; 
-}
+    film.forEach(element => Object.values(element)  {
+      `<div> ${film.name} </div>
+      `
+    });
+  }
+  crearTarjeta(films[0]);
+  function CrearTarjetas(listaPelis){
+    // for llama a crear taejeta de la lista que toque
+    for (int i=0; i<films.length; i++)
+  }
 
   ///////////////////////////////////////////////////////////////////////////
 
