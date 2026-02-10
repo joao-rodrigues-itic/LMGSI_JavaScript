@@ -89,14 +89,21 @@
     const card = document.createElement("div")
 
     film.forEach(element => Object.values(element)  {
-      `<div> ${film.name} </div>
-      `
+      <div> ${film.name} </div>
+      <div> ${film.year} </div>
+      <div> ${film.style} </div>
+      <div> ${film.director} </div>
+      <div> ${film.actors} </div>
+      <div> ${film.oscar} </div>
     });
   }
   crearTarjeta(films[0]);
   function CrearTarjetas(listaPelis){
     // for llama a crear taejeta de la lista que toque
-    for (int i=0; i<films.length; i++)
+    for (int i=0; i<films.length; i++){
+        CrearTarjetas(film [i])
+
+    }
   }
 
   ///////////////////////////////////////////////////////////////////////////
