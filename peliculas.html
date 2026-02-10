@@ -21,7 +21,7 @@
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 20px;
       padding: 20px;
     }
@@ -31,6 +31,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       overflow: hidden;
       transition: transform 0.2s;
+      width: 100%;
     }
     .card:hover {
       transform: scale(1.02);
@@ -60,43 +61,53 @@
   <div class="cerca">
     <h1 style="text-align:center; padding: 20px 0;">Col·leció de pel·lícules</h1>    
     <input type="text" id="cerca" name="Cerca" title="Terme de cerca" required><br>
-    <button type="button" onclick="funcio()">Cerca</button>
+    <button type="button" onclick="crearTarjetas(films)">Cerca</button>
   </div>
   
   <div class="container" id="film-container">
-  
-    <div class="card">
-      <div class="title" id="title">
-        <h2 id="name">Godfather</h2>
-      </div>
-      <div class="content" id="content">
-        <p id="year">1993</p>
-        <p id="style">Thriller</p>
-        <p id="director">Joao</p>
-        <p id="actors">hola</p>
-        <p id="oscars">2</p>
-      </div>
-    </div>
 
   </div>
 
   <script>
   /////////////////////// Fiqueu el vostre codi aquí ////////////////////////
-  const container = document.getElementById("film-container");
+  const container = document.getElementById("film-container"); //Agafa el container on es mostraran les targetes
   
-  function crearTarjeta (film){
-    
-    const card = document.createElement("div")
+  function crearTarjeta (film){ // Funció per crear una targeta
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    film.forEach(element => Object.values(element)  {
-      `<div> ${film.name} </div>
-      `
-    });
+      // Afegim el contingut de la targeta amb les dades de la pel·lícula
+      card.innerHTML = ` 
+      <div class="card">
+        <h2 id="name"> ${film.name} </h2>
+        <p id="year"> "Year: " ${film.year} </p>
+        <p id="style"> "Style: " ${film.style} </p>
+        <p id="director"> "Director: " ${film.director} </p>
+        <p id="actors"> "Actors: " ${film.actors} </p>
+        <p id="oscars"> "Oscars: " ${film.oscars} </p>
+      </div>
+      `;
+      container.appendChild(card); // Afegim la targeta al container
   }
-  crearTarjeta(films[0]);
-  function CrearTarjetas(listaPelis){
-    // for llama a crear taejeta de la lista que toque
-    for (int i=0; i<films.length; i++)
+  
+  function crearTarjetas(films){ // Funció per crear les targetes segons el text introduït a la barra de cerca
+    container.innerHTML = ""; // Esborrem les targetes anteriors per cada nova cerca
+    let text = document.getElementById("cerca").value.toLowerCase();
+
+    for (let i=0; i<films.length; i++){ // Recorrem totes les pel·lícules
+      const film = films[i];
+
+      if(text === "" || 
+      film.name?.toLowerCase().includes(text) ||
+      film.year?.toString().includes(text) ||
+      film.style?.toLowerCase().includes(text) ||
+      film.director?.toLowerCase().includes(text) ||
+      film.actors?.join(" ").toLowerCase().includes(text) ||
+      film.oscars?.toString().includes(text)
+      ){ // Si el text de cerca està buit o coincideix amb algun camp de la pel·lícula, es crea la targeta
+        crearTarjeta(films[i]);
+      }
+    }
   }
 
   ///////////////////////////////////////////////////////////////////////////
